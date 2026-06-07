@@ -193,25 +193,80 @@ footer{
         <div class="card">
             <h3>🌐 WORLD </h3>
             <p>ASIA AMERIKA AFRIKA EROPA AUSTRALIA.</p>
-            <div id="map" style="height:600px"></div>
+            <!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY JOURNEY - World Map</title>
 
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
-<script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
-<script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#0f172a;
+}
+
+h1{
+    text-align:center;
+    color:white;
+    padding:20px;
+    margin:0;
+    background:#1e293b;
+}
+
+#map{
+    height:90vh;
+}
+</style>
+</head>
+<body>
+
+<h1>🌍 MY JOURNEY WORLD MAP</h1>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-new jsVectorMap({
-  selector: "#map",
-  map: "world"
-});
-   (
-    'https://maps.google.com,
-    '_blank'
-);
+
+const map = L.map('map').setView([20,0], 2);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'© OpenStreetMap'
+}).addTo(map);
+
+// Indonesia
+L.marker([-6.2088,106.8456])
+.addTo(map)
+.bindPopup("<b>Indonesia</b><br>Starting Point");
+
+// Jepang
+L.marker([35.6762,139.6503])
+.addTo(map)
+.bindPopup("<b>Japan</b><br>Dream Destination");
+
+// Singapura
+L.marker([1.3521,103.8198])
+.addTo(map)
+.bindPopup("<b>Singapore</b>");
+
+// Inggris
+L.marker([51.5074,-0.1278])
+.addTo(map)
+.bindPopup("<b>United Kingdom</b>");
+
+// Amerika Serikat
+L.marker([40.7128,-74.0060])
+.addTo(map)
+.bindPopup("<b>New York, USA</b>");
+
 </script>
-        </div>
+
+</body>
+</html>
 
         <div class="card">
             <h3>🚀 INDONESIA</h3>
