@@ -212,9 +212,18 @@ new jsVectorMap({
         <div class="card">
             <h3>🚀 INDONESIA</h3>
             <p>SUMATRA JAWA KALIMANTAN SULAWESI PAPUA BALI</p>
-            L.marker([-6.2088, 106.8456])
- .addTo(map)
- .bindPopup('Jakarta, Indonesia');
+            fetch('indonesia.geojson')
+.then(res => res.json())
+.then(data => {
+    L.geoJSON(data,{
+        style:{
+            color:'#2563eb',
+            weight:1,
+            fillColor:'#60a5fa',
+            fillOpacity:0.5
+        }
+    }).addTo(map);
+});
         </div>
 
         <div class="card">
