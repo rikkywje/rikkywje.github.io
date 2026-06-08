@@ -1,222 +1,8 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Landing Page Meriah</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
-body{
-    background:#071b08;
-    overflow-x:hidden;
-    color:white;
-}
-
-/* Background animasi */
-body::before{
-    content:"";
-    position:fixed;
-    width:200%;
-    height:200%;
-    background:
-    radial-gradient(circle,#0f0 0%,transparent 20%),
-    radial-gradient(circle,#ff0 0%,transparent 15%),
-    radial-gradient(circle,#00ffff 0%,transparent 15%);
-    background-size:300px 300px;
-    opacity:.08;
-    animation:bgMove 30s linear infinite;
-    z-index:-2;
-}
-
-@keyframes bgMove{
-    from{
-        transform:translate(0,0);
-    }
-    to{
-        transform:translate(-500px,-300px);
-    }
-}
-
-/* Navbar */
-.navbar{
-    background:#0b5f1d;
-    padding:15px 40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    font-size:38px;
-    font-weight:bold;
-    color:#fff;
-    text-shadow:0 0 20px #00ff66;
-}
-
-.menu{
-    display:flex;
-    gap:25px;
-}
-
-.menu a{
-    color:white;
-    text-decoration:none;
-    transition:.3s;
-}
-
-.menu a:hover{
-    color:#ffee00;
-}
-
-/* Hero */
-.hero{
-    min-height:80vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-}
-
-.hero-content{
-    z-index:2;
-}
-
-.hero h1{
-    font-size:90px;
-    line-height:1;
-    text-transform:uppercase;
-    color:#ffee00;
-    text-shadow:
-    0 0 15px #ffee00,
-    0 0 30px #ff8800,
-    0 0 60px #ff4400;
-    animation:pulse 2s infinite;
-}
-
-.hero h2{
-    font-size:50px;
-    color:#fff;
-    margin-top:15px;
-}
-
-@keyframes pulse{
-    0%,100%{
-        transform:scale(1);
-    }
-    50%{
-        transform:scale(1.05);
-    }
-}
-
-.cta{
-    margin-top:30px;
-    padding:18px 40px;
-    border:none;
-    border-radius:50px;
-    font-size:20px;
-    font-weight:bold;
-    background:linear-gradient(45deg,#ffd000,#ff6600);
-    cursor:pointer;
-    animation:glow 1.5s infinite alternate;
-}
-
-@keyframes glow{
-    from{
-        box-shadow:0 0 10px orange;
-    }
-    to{
-        box-shadow:0 0 40px yellow;
-    }
-}
-
-/* Running Text */
-.marquee{
-    background:#0f7d28;
-    padding:12px;
-    overflow:hidden;
-    white-space:nowrap;
-}
-
-.marquee span{
-    display:inline-block;
-    animation:marquee 15s linear infinite;
-    font-weight:bold;
-}
-
-@keyframes marquee{
-    from{
-        transform:translateX(100%);
-    }
-    to{
-        transform:translateX(-100%);
-    }
-}
-
-/* Promo Cards */
-.cards{
-    padding:60px 30px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.15);
-    backdrop-filter:blur(10px);
-    border-radius:20px;
-    padding:25px;
-    text-align:center;
-    transition:.4s;
-}
-
-.card:hover{
-    transform:translateY(-10px) scale(1.05);
-    box-shadow:0 0 25px #00ff66;
-}
-
-.card h3{
-    color:#ffee00;
-    margin-bottom:10px;
-}
-
-/* Floating Icon */
-.coin{
-    position:absolute;
-    font-size:40px;
-    animation:float 8s linear infinite;
-    opacity:.7;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(100vh) rotate(0deg);
-    }
-    to{
-        transform:translateY(-200px) rotate(720deg);
-    }
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    background:#0a3915;
-}
-</style>
-</head>
+```html
 <body>
 
 <nav class="navbar">
-    <div class="logo"><p>MUSANG</p></div>
+    <div class="logo">https://files.sitestatic.net/promotion_banners/2026053119015000000009c18867a2__8__3840x2160.jpg</div>
 
     <div class="menu">
         <a href="#">Home</a>
@@ -226,40 +12,44 @@ footer{
     </div>
 </nav>
 
-<div class="hero">
+<!-- HERO -->
+<section class="hero">
 
     <div class="hero-content">
+
         <h1>BONUS EXTRA</h1>
+
         <h2>Untuk Semua Member</h2>
-<a href="https://prod3mplay2.web-ns2.live/"
-       target="_blank"
-       style="
-           display: inline-block;
-           padding: 12px 25px;
-           background: white;
-           color: #4285F4;
-           text-decoration: none;
-           font-weight: bold;
-           border-radius: 6px;
-       ">
-       CLAIM
-    </a>
-</div>
 
+        <a href="https://prod3mplay2.web-ns2.live/"
+           target="_blank"
+           class="cta-link">
+           CLAIM SEKARANG
+        </a>
 
+    </div>
+
+</section>
+
+<!-- MARQUEE -->
 <div class="marquee">
     <span>
         🎉 Promo Spesial Hari Ini • Bonus Member Baru • Cashback • Hadiah Menarik • Event Terbaru 🎉
     </span>
 </div>
 
+<!-- CARDS -->
 <section class="cards">
 
     <div class="card">
         <h3>🎁 Bonus Harian</h3>
         <p>Dapatkan bonus setiap hari.</p>
-         <button class="cta">
+
         <a href="https://prod3mplay2.web-ns2.live/register"
+           target="_blank"
+           class="card-btn">
+           Daftar
+        </a>
     </div>
 
     <div class="card">
@@ -283,35 +73,5 @@ footer{
     © 2025 Landing Page Meriah
 </footer>
 
-<script>
-
-// Generate floating icons
-const icons = ["💰","✨","🎉","⭐","🔥"];
-
-setInterval(() => {
-
-    const coin = document.createElement("div");
-
-    coin.classList.add("coin");
-
-    coin.innerHTML =
-      icons[Math.floor(Math.random()*icons.length)];
-
-    coin.style.left =
-      Math.random()*100 + "vw";
-
-    coin.style.animationDuration =
-      (5 + Math.random()*5) + "s";
-
-    document.body.appendChild(coin);
-
-    setTimeout(()=>{
-        coin.remove();
-    },10000);
-
-},500);
-
-</script>
-
 </body>
-</html>
+```
