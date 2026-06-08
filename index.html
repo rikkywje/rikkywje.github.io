@@ -1,148 +1,307 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fantasy Game Landing Page</title>
+<title>Landing Page Meriah</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
 body{
-    font-family:Arial, sans-serif;
+    background:#071b08;
     overflow-x:hidden;
+    color:white;
 }
 
-/* Background utama */
-.hero{
-    height:100vh;
+/* Background animasi */
+body::before{
+    content:"";
+    position:fixed;
+    width:200%;
+    height:200%;
     background:
-    linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.6)),
-    url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920');
-    background-size:cover;
-    background-position:center;
+    radial-gradient(circle,#0f0 0%,transparent 20%),
+    radial-gradient(circle,#ff0 0%,transparent 15%),
+    radial-gradient(circle,#00ffff 0%,transparent 15%);
+    background-size:300px 300px;
+    opacity:.08;
+    animation:bgMove 30s linear infinite;
+    z-index:-2;
+}
+
+@keyframes bgMove{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(-500px,-300px);
+    }
+}
+
+/* Navbar */
+.navbar{
+    background:#0b5f1d;
+    padding:15px 40px;
     display:flex;
-    justify-content:center;
+    justify-content:space-between;
     align-items:center;
-    text-align:center;
-    color:white;
 }
 
-/* Efek glow */
-.hero-content{
-    backdrop-filter:blur(6px);
-    padding:40px;
-    border-radius:20px;
-    background:rgba(255,255,255,0.08);
-    box-shadow:0 0 30px rgba(255,165,0,.4);
-}
-
-.hero h1{
-    font-size:4rem;
-    margin-bottom:15px;
-}
-
-.hero p{
-    font-size:1.2rem;
-    margin-bottom:25px;
-}
-
-.btn{
-    display:inline-block;
-    padding:15px 35px;
-    text-decoration:none;
-    background:#ff5c2b;
-    color:white;
-    border-radius:50px;
+.logo{
+    font-size:38px;
     font-weight:bold;
+    color:#fff;
+    text-shadow:0 0 20px #00ff66;
+}
+
+.menu{
+    display:flex;
+    gap:25px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
     transition:.3s;
 }
 
-.btn:hover{
-    transform:translateY(-3px);
-    background:#ff7a52;
+.menu a:hover{
+    color:#ffee00;
+}
+
+/* Hero */
+.hero{
+    min-height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-content{
+    z-index:2;
+}
+
+.hero h1{
+    font-size:90px;
+    line-height:1;
+    text-transform:uppercase;
+    color:#ffee00;
+    text-shadow:
+    0 0 15px #ffee00,
+    0 0 30px #ff8800,
+    0 0 60px #ff4400;
+    animation:pulse 2s infinite;
+}
+
+.hero h2{
+    font-size:50px;
+    color:#fff;
+    margin-top:15px;
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.05);
+    }
+}
+
+.cta{
+    margin-top:30px;
+    padding:18px 40px;
+    border:none;
+    border-radius:50px;
+    font-size:20px;
+    font-weight:bold;
+    background:linear-gradient(45deg,#ffd000,#ff6600);
+    cursor:pointer;
+    animation:glow 1.5s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        box-shadow:0 0 10px orange;
+    }
+    to{
+        box-shadow:0 0 40px yellow;
+    }
+}
+
+/* Running Text */
+.marquee{
+    background:#0f7d28;
+    padding:12px;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.marquee span{
+    display:inline-block;
+    animation:marquee 15s linear infinite;
+    font-weight:bold;
+}
+
+@keyframes marquee{
+    from{
+        transform:translateX(100%);
+    }
+    to{
+        transform:translateX(-100%);
+    }
+}
+
+/* Promo Cards */
+.cards{
+    padding:60px 30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 0 25px #00ff66;
+}
+
+.card h3{
+    color:#ffee00;
+    margin-bottom:10px;
+}
+
+/* Floating Icon */
+.coin{
+    position:absolute;
+    font-size:40px;
+    animation:float 8s linear infinite;
+    opacity:.7;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh) rotate(0deg);
+    }
+    to{
+        transform:translateY(-200px) rotate(720deg);
+    }
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:#0a3915;
 }
 </style>
 </head>
 <body>
 
-<section class="hero">
+<nav class="navbar">
+    <div class="logo">BRAND</div>
+
+    <div class="menu">
+        <a href="#">Home</a>
+        <a href="#">Promo</a>
+        <a href="#">Produk</a>
+        <a href="#">Kontak</a>
+    </div>
+</nav>
+
+<div class="hero">
+
     <div class="hero-content">
-        <h1>Fantasy Adventure</h1>
-        <p>
-            Tema dunia dewa, permen warna-warni, dan nuansa oriental modern.
-        </p>
+        <h1>BONUS EXTRA</h1>
+        <h2>Untuk Semua Member</h2>
 
-        <a href="#" class="btn">Mulai Eksplorasi</a>
+        <button class="cta">
+            DAFTAR SEKARANG
+        </button>
     </div>
-</section>
 
-</body>
-</html>
+</div>
 
-<header>
-    <div class="hero">
-        <h1>Dunia <span>SLOT</span> Tergacor </h1>
+<div class="marquee">
+    <span>
+        🎉 Promo Spesial Hari Ini • Bonus Member Baru • Cashback • Hadiah Menarik • Event Terbaru 🎉
+    </span>
+</div>
 
-        <p>
-            Temukan berita SLOT GACOR terbaru, 
-            teknologi terkini dalam satu tempat.
-        </p>
-
-        <div class="buttons">
-            <a href="https://prod3mplay2.web-ns2.live" target="_blank" class="btn btn-primary">
-                3MPLAY
-            </a>
-
-            <a href="https://maylitamaris.com/" target="_blank" class="btn btn-secondary">
-                TESTING
-            </a>
-
-            <a href="https://ug3tester.web-ug.com//" target="_blank" class="btn btn-primary">
-                UG3 OS
-            </a>
-
-            <a href="https://ug555_test.web-ns3.live/register" target="_blank" class="btn btn-secondary">
-                INTER555 NS3
-            </a>
-        </div>
-    </div>
-</header>
-
-<section class="features">
+<section class="cards">
 
     <div class="card">
-        <h3>🚗 Review Mobil</h3>
-        <p>
-            Ulasan lengkap mobil terbaru dari berbagai merek dunia.
-        </p>
+        <h3>🎁 Bonus Harian</h3>
+        <p>Dapatkan bonus setiap hari.</p>
     </div>
 
     <div class="card">
-        <h3>⚡ Mobil Listrik</h3>
-        <p>
-            Informasi teknologi kendaraan listrik dan masa depan otomotif.
-        </p>
+        <h3>🔥 Promo Spesial</h3>
+        <p>Promo terbatas dengan hadiah besar.</p>
     </div>
 
     <div class="card">
-        <h3>🔧 Modifikasi</h3>
-        <p>
-            Inspirasi modifikasi keren untuk meningkatkan performa dan tampilan.
-        </p>
+        <h3>⭐ Member VIP</h3>
+        <p>Keuntungan eksklusif untuk member premium.</p>
+    </div>
+
+    <div class="card">
+        <h3>🚀 Event Bulanan</h3>
+        <p>Ikuti event dan menangkan hadiah.</p>
     </div>
 
 </section>
 
 <footer>
-    © 2026 AutoDrive Indonesia | All Rights Reserved
+    © 2025 Landing Page Meriah
 </footer>
+
+<script>
+
+// Generate floating icons
+const icons = ["💰","✨","🎉","⭐","🔥"];
+
+setInterval(() => {
+
+    const coin = document.createElement("div");
+
+    coin.classList.add("coin");
+
+    coin.innerHTML =
+      icons[Math.floor(Math.random()*icons.length)];
+
+    coin.style.left =
+      Math.random()*100 + "vw";
+
+    coin.style.animationDuration =
+      (5 + Math.random()*5) + "s";
+
+    document.body.appendChild(coin);
+
+    setTimeout(()=>{
+        coin.remove();
+    },10000);
+
+},500);
+
+</script>
 
 </body>
 </html>
-```
