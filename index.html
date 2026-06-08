@@ -4,39 +4,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutoDrive Indonesia</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Fantasy Game Landing Page</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:#0f172a;
-    color:white;
+    font-family:Arial, sans-serif;
+    overflow-x:hidden;
 }
 
-header{
-    min-height:100vh;
+/* Background utama */
+.hero{
+    height:100vh;
     background:
-    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.7)),
-    url('https://images.unsplash.com/photo-1549366021-9f761…15?w=620&auto=format&fit=crop&q=60&ixlib=rb-4.1.0');
+    linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.6)),
+    url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920');
     background-size:cover;
     background-position:center;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     text-align:center;
-    padding:20px;
+    color:white;
 }
 
-.hero{
-    max-width:800px;
+/* Efek glow */
+.hero-content{
+    backdrop-filter:blur(6px);
+    padding:40px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.08);
+    box-shadow:0 0 30px rgba(255,165,0,.4);
 }
 
 .hero h1{
@@ -44,80 +47,43 @@ header{
     margin-bottom:15px;
 }
 
-.hero span{
-    color:#ff3c00;
-}
-
 .hero p{
     font-size:1.2rem;
-    margin-bottom:30px;
-    color:#ddd;
-}
-
-.buttons{
-    display:flex;
-    gap:15px;
-    justify-content:center;
-    flex-wrap:wrap;
+    margin-bottom:25px;
 }
 
 .btn{
-    padding:15px 30px;
-    border:none;
-    border-radius:50px;
+    display:inline-block;
+    padding:15px 35px;
     text-decoration:none;
-    font-weight:600;
+    background:#ff5c2b;
+    color:white;
+    border-radius:50px;
+    font-weight:bold;
     transition:.3s;
 }
 
-.btn-primary{
-    background:#ff3c00;
-    color:white;
-}
-
-.btn-primary:hover{
-    background:#ff5c2b;
+.btn:hover{
     transform:translateY(-3px);
-}
-
-.btn-secondary{
-    background:white;
-    color:#111;
-}
-
-.btn-secondary:hover{
-    transform:translateY(-3px);
-}
-
-.features{
-    padding:80px 10%;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-    background:#111827;
-}
-
-.card{
-    background:#1f2937;
-    padding:30px;
-    border-radius:15px;
-    text-align:center;
-}
-
-.card h3{
-    margin-bottom:15px;
-    color:#ff3c00;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    background:#0b1120;
+    background:#ff7a52;
 }
 </style>
 </head>
-
 <body>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Fantasy Adventure</h1>
+        <p>
+            Tema dunia dewa, permen warna-warni, dan nuansa oriental modern.
+        </p>
+
+        <a href="#" class="btn">Mulai Eksplorasi</a>
+    </div>
+</section>
+
+</body>
+</html>
 
 <header>
     <div class="hero">
