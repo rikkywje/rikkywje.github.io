@@ -3,109 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Travel</title>
+<title>Travel Paradise</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:'Segoe UI',sans-serif;
 }
 
-html,body{
-    height:100%;
+body{
+    overflow:hidden;
 }
 
 /* HERO */
+
 .hero{
     position:relative;
+    width:100%;
     height:100vh;
-    background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80")
-    center center/cover no-repeat;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.35),
+        rgba(0,0,0,.45)
+    ),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80");
+
+    background-size:cover;
+    background-position:center;
+
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
-}
-
-/* Overlay Gelap */
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.45);
+    text-align:center;
 }
 
 /* CONTENT */
-.hero-content{
+
+.content{
     position:relative;
-    z-index:2;
-    text-align:center;
+    z-index:10;
     color:white;
-    max-width:700px;
     padding:20px;
+    max-width:700px;
 }
 
-.hero-content h1{
-    font-size:3.5rem;
-    margin-bottom:15px;
+.content h1{
+    font-size:4rem;
+    margin-bottom:20px;
+    text-shadow:0 4px 10px rgba(0,0,0,.5);
 }
 
-.hero-content p{
+.content p{
     font-size:1.2rem;
-    line-height:1.7;
+    line-height:1.8;
     margin-bottom:30px;
 }
 
-/* BUTTON */
 .btn{
     display:inline-block;
-    padding:14px 30px;
-    background:#00bcd4;
+    padding:15px 35px;
+    border-radius:50px;
+    background:#00c9ff;
     color:white;
     text-decoration:none;
-    border-radius:50px;
     font-weight:bold;
-    transition:0.3s;
+    transition:.3s;
 }
 
 .btn:hover{
-    background:#0097a7;
-    transform:translateY(-3px);
+    background:#00a9d6;
+    transform:translateY(-4px);
 }
 
-/* WAVE */
-.wave-wrapper{
+/* CLOUDS */
+
+.cloud{
+    position:absolute;
+    color:white;
+    opacity:.5;
+    font-size:90px;
+    animation:cloudMove linear infinite;
+}
+
+.cloud1{
+    top:60px;
+    left:-200px;
+    animation-duration:35s;
+}
+
+.cloud2{
+    top:140px;
+    left:-250px;
+    animation-duration:50s;
+}
+
+.cloud3{
+    top:220px;
+    left:-180px;
+    animation-duration:40s;
+}
+
+@keyframes cloudMove{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(2200px);
+    }
+}
+
+/* PALM TREES */
+
+.palm{
+    position:absolute;
+    bottom:120px;
+    z-index:5;
+    transform-origin:bottom center;
+}
+
+.palm-left{
+    left:30px;
+    animation:swayLeft 5s ease-in-out infinite;
+}
+
+.palm-right{
+    right:30px;
+    animation:swayRight 6s ease-in-out infinite;
+}
+
+@keyframes swayLeft{
+    0%,100%{
+        transform:rotate(-3deg);
+    }
+    50%{
+        transform:rotate(3deg);
+    }
+}
+
+@keyframes swayRight{
+    0%,100%{
+        transform:rotate(3deg);
+    }
+    50%{
+        transform:rotate(-3deg);
+    }
+}
+
+.palm svg{
+    width:180px;
+    height:auto;
+}
+
+/* WAVES */
+
+.wave-area{
     position:absolute;
     bottom:0;
-    left:0;
     width:100%;
     overflow:hidden;
     line-height:0;
-    z-index:1;
 }
 
 .wave{
+    position:absolute;
+    bottom:0;
     width:200%;
-    height:140px;
+    height:150px;
+}
+
+.wave svg{
+    width:100%;
+    height:100%;
+}
+
+.wave1{
+    opacity:.5;
     animation:waveMove 12s linear infinite;
 }
 
-.wave path{
-    fill:rgba(255,255,255,0.4);
-}
-
-.wave.second{
-    position:absolute;
-    bottom:0;
-    left:0;
-    opacity:0.5;
-    animation:waveMoveReverse 18s linear infinite;
-}
-
-.wave.second path{
-    fill:rgba(255,255,255,0.25);
+.wave2{
+    opacity:.3;
+    animation:waveMove 20s linear infinite reverse;
 }
 
 @keyframes waveMove{
@@ -117,60 +199,154 @@ html,body{
     }
 }
 
-@keyframes waveMoveReverse{
-    from{
-        transform:translateX(-50%);
-    }
-    to{
-        transform:translateX(0);
-    }
-}
+/* MOBILE */
 
-/* RESPONSIVE */
 @media(max-width:768px){
 
-    .hero-content h1{
+    .content h1{
         font-size:2.3rem;
     }
 
-    .hero-content p{
+    .content p{
         font-size:1rem;
     }
 
-    .wave{
-        height:90px;
+    .palm svg{
+        width:110px;
+    }
+
+    .cloud{
+        font-size:60px;
     }
 }
+
 </style>
 </head>
-
 <body>
 
 <section class="hero">
 
-    <div class="hero-content">
+    <!-- Clouds -->
+
+    <div class="cloud cloud1">☁️</div>
+    <div class="cloud cloud2">☁️</div>
+    <div class="cloud cloud3">☁️</div>
+
+    <!-- Palm Left -->
+
+    <div class="palm palm-left">
+
+        <svg viewBox="0 0 200 350">
+
+            <rect x="90" y="70" width="20" height="280"
+                fill="#7b4b2a"/>
+
+            <path d="M100 70
+                     C40 20 0 40 20 80"
+                stroke="#2ecc71"
+                stroke-width="18"
+                fill="none"/>
+
+            <path d="M100 70
+                     C160 20 200 40 180 80"
+                stroke="#2ecc71"
+                stroke-width="18"
+                fill="none"/>
+
+            <path d="M100 70
+                     C20 90 10 130 40 140"
+                stroke="#27ae60"
+                stroke-width="18"
+                fill="none"/>
+
+            <path d="M100 70
+                     C180 90 190 130 160 140"
+                stroke="#27ae60"
+                stroke-width="18"
+                fill="none"/>
+
+        </svg>
+
+    </div>
+
+    <!-- Palm Right -->
+
+    <div class="palm palm-right">
+
+        <svg viewBox="0 0 200 350">
+
+            <rect x="90" y="70" width="20" height="280"
+                fill="#7b4b2a"/>
+
+            <path d="M100 70
+                     C40 20 0 40 20 80"
+                stroke="#2ecc71"
+                stroke-width="18"
+                fill="none"/>
+
+            <path d="M100 70
+                     C160 20 200 40 180 80"
+                stroke="#2ecc71"
+                stroke-width="18"
+                fill="none"/>
+
+            <path d="M100 70
+                     C20 90 10 130 40 140"
+                stroke="#27ae60"
+                stroke-width="18"
+                fill="none"/>
+
+            <path d="M100 70
+                     C180 90 190 130 160 140"
+                stroke="#27ae60"
+                stroke-width="18"
+                fill="none"/>
+
+        </svg>
+
+    </div>
+
+    <!-- CONTENT -->
+
+    <div class="content">
         <h1>Temukan Liburan Impianmu</h1>
 
         <p>
-            Jelajahi pantai, resort, dan destinasi terbaik di dunia
-            dengan pengalaman yang tak terlupakan.
+            Jelajahi pantai tropis, resort mewah,
+            dan destinasi eksotis dengan pengalaman
+            yang tak terlupakan.
         </p>
 
-        <a href="https://www.tiket.com" class="btn">
+        <a href="#" class="btn">
             Pesan Sekarang
         </a>
     </div>
 
-    <!-- WAVE -->
-    <div class="wave-wrapper">
+    <!-- WAVES -->
 
-        <svg class="wave" viewBox="0 0 2880 320" preserveAspectRatio="none">
-            <path d="M0,224L60,213.3C120,203,240,181,360,181.3C480,181,600,203,720,218.7C840,235,960,245,1080,224C1200,203,1320,149,1440,138.7C1560,128,1680,160,1800,181.3C1920,203,2040,213,2160,202.7C2280,192,2400,160,2520,154.7C2640,149,2760,171,2820,181.3L2880,192L2880,320L0,320Z"></path>
-        </svg>
+    <div class="wave-area">
 
-        <svg class="wave second" viewBox="0 0 2880 320" preserveAspectRatio="none">
-            <path d="M0,256L80,240C160,224,320,192,480,170.7C640,149,800,139,960,154.7C1120,171,1280,213,1440,218.7C1600,224,1760,192,1920,170.7C2080,149,2240,139,2400,154.7C2560,171,2720,213,2800,234.7L2880,256L2880,320L0,320Z"></path>
-        </svg>
+        <div class="wave wave1">
+
+            <svg viewBox="0 0 2880 320" preserveAspectRatio="none">
+
+                <path fill="#ffffff"
+                d="M0,224L80,208C160,192,320,160,480,160C640,160,800,192,960,208C1120,224,1280,224,1440,202C1600,181,1760,139,1920,133C2080,128,2240,160,2400,186C2560,213,2720,235,2880,224L2880,320L0,320Z"/>
+
+            </svg>
+
+        </div>
+
+        <div class="wave wave2">
+
+            <svg viewBox="0 0 2880 320" preserveAspectRatio="none">
+
+                <path fill="#ffffff"
+                d="M0,256L80,240C160,224,320,192,480,170C640,149,800,149,960,165C1120,181,1280,213,1440,218C1600,224,1760,192,1920,165C2080,139,2240,117,2400,133C2560,149,2720,203,2880,224L2880,320L0,320Z"/>
+
+            </svg>
+
+        </div>
 
     </div>
 
