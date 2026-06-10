@@ -17,7 +17,7 @@ body, html {
     height: 100%;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
     height: 100vh;
     background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
@@ -25,9 +25,10 @@ body, html {
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden; /* penting untuk wave */
 }
 
-/* overlay gelap */
+/* overlay */
 .hero::before {
     content: "";
     position: absolute;
@@ -57,42 +58,6 @@ body, html {
     line-height: 1.6;
 }
 
-
-<div class="wave"></div>    
-
-  .wave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 200%;
-    height: 120px;
-    background: url('https://i.ibb.co/6W40t1B/wave.png');
-    background-size: 50% 100%;
-    animation: waveMove 6s linear infinite;
-    opacity: 0.6;
-}
-
-@keyframes waveMove {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-.wave2 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 200%;
-    height: 150px;
-    background: url('https://i.ibb.co/6W40t1B/wave.png');
-    background-size: 50% 100%;
-    animation: waveMove 10s linear infinite;
-    opacity: 0.4;
-}
-    
 /* BUTTON */
 .btn {
     display: inline-block;
@@ -109,12 +74,47 @@ body, html {
     background: #0097a7;
     transform: translateY(-3px);
 }
+
+/* 🌊 WAVE */
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 120px;
+    background: url('https://i.ibb.co/6W40t1B/wave.png');
+    background-size: 50% 100%;
+    animation: waveMove 6s linear infinite;
+    opacity: 0.6;
+}
+
+.wave2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 150px;
+    background: url('https://i.ibb.co/6W40t1B/wave.png');
+    background-size: 50% 100%;
+    animation: waveMove 10s linear infinite;
+    opacity: 0.4;
+}
+
+@keyframes waveMove {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
 </style>
 </head>
 
 <body>
 
 <div class="hero">
+    
     <div class="hero-content">
         <h1>Temukan Liburan Impianmu</h1>
         <p>
@@ -122,6 +122,11 @@ body, html {
         </p>
         <a href="https://www.tiket.com" class="btn">Pesan Sekarang</a>
     </div>
+
+    <!-- 🌊 WAVE HARUS DI DALAM HERO -->
+    <div class="wave"></div>
+    <div class="wave2"></div>
+
 </div>
 
 </body>
