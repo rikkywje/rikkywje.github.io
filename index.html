@@ -3,177 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TIKET KU</title>
+<title>Landing Page Travel</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-body{
-    height:100vh;
-    background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') center center/cover no-repeat;
+body, html {
+    height: 100%;
 }
 
-.overlay{
+/* HERO SECTION */
+.hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* overlay gelap */
+.hero::before {
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
     width:100%;
-    height:100vh;
-    background:rgba(0,0,0,0.4);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
+    height:100%;
+    background: rgba(0,0,0,0.5);
 }
 
-.content{
-    max-width:700px;
-    padding:20px;
+.hero-content {
+    position: relative;
+    text-align: center;
+    color: white;
+    max-width: 700px;
+    padding: 20px;
 }
 
-h1{
-    font-size:3rem;
-    margin-bottom:15px;
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
 }
 
-p{
-    font-size:1.1rem;
-    margin-bottom:30px;
-    line-height:1.6;
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
 }
 
-.buttons{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s;
+    font-weight: bold;
 }
 
-.btn{
-    padding:14px 30px;
-    border:none;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:16px;
-    transition:0.3s;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.btn-primary{
-    background:#00bcd4;
-    color:white;
-}
-
-.btn-primary:hover{
-    background:#0097a7;
-    transform:translateY(-3px);
-}
-
-.btn-secondary{
-    background:white;
-    color:#333;
-}
-
-.btn-secondary:hover{
-    background:#f1f1f1;
-    transform:translateY(-3px);
-}
-
-.btn-outline{
-    background:transparent;
-    border:2px solid white;
-    color:white;
-}
-
-.btn-outline:hover{
-    background:white;
-    color:#333;
+.btn:hover {
+    background: #0097a7;
+    transform: translateY(-3px);
 }
 </style>
 </head>
+
 <body>
 
-    
-<div class="overlay">
-    <div class="content">
-        <h1>Selamat Datang di Paradise Beach</h1>
+<div class="hero">
+    <div class="hero-content">
+        <h1>Temukan Liburan Impianmu</h1>
         <p>
-            Nikmati keindahan pantai tropis, pasir putih, dan suasana
-            yang menenangkan untuk liburan impian Anda.
+            Jelajahi pantai, resort, dan destinasi terbaik di dunia dengan pengalaman yang tak terlupakan.
         </p>
-
-            <a href="https://www.tiket.com" target="_blank" class="btn-ticket">
-    🎫 Pesan Sekarang
-</a>
-
-<style>
-.btn-ticket {
-    display: inline-block;
-    padding: 12px 24px;
-    background: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    transition: background 0.3s;
-}
-
-.btn-ticket:hover {
-    background: #0056b3;
-}
-</style>
-
-         <a href="https://www.tiket.com/en-us/flights" target="_blank" class="btn-ticket">
-    🎫 Jadwal penerbangan
-</a>
-
-        
-<style>
-.btn-ticket {
-    display: inline-block;
-    padding: 12px 24px;
-    background: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    transition: background 0.3s;
-}
-
-.btn-ticket:hover {
-    background: #0056b3y;
-}
-</style>
-
-             <a href="https://www.tiket.com/en-us/promo?utm_source=header_desktop" target="_blank" class="btn-ticket">
-    🎫 Lihat promo
-</a>
-
-        
-<style>
-.btn-ticket {
-    display: inline-block;
-    padding: 12px 24px;
-    background: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    transition: background 0.3s;
-}
-
-.btn-ticket:hover {
-    background: #0056b3;
-}
-</style>
-        </div>
+        <a href="https://www.tiket.com" class="btn">Pesan Sekarang</a>
     </div>
 </div>
 
