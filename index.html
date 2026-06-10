@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Landing Page Travel</title>
+<title>Travel</title>
 
 <style>
 * {
@@ -57,6 +57,42 @@ body, html {
     line-height: 1.6;
 }
 
+
+<div class="wave"></div>    
+
+  .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 120px;
+    background: url('https://i.ibb.co/6W40t1B/wave.png');
+    background-size: 50% 100%;
+    animation: waveMove 6s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes waveMove {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.wave2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 150px;
+    background: url('https://i.ibb.co/6W40t1B/wave.png');
+    background-size: 50% 100%;
+    animation: waveMove 10s linear infinite;
+    opacity: 0.4;
+}
+    
 /* BUTTON */
 .btn {
     display: inline-block;
