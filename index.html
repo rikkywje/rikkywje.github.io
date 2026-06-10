@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tropical</title>
+
+<title>Luxury Beach Escape</title>
 
 <style>
 
@@ -11,122 +12,129 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:system-ui, sans-serif;
 }
 
 body{
     overflow:hidden;
-    font-family:Arial, sans-serif;
 }
 
-/* VIDEO BACKGROUND */
+/* HERO */
 .hero{
     position:relative;
     width:100%;
     height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
     overflow:hidden;
 }
 
-.hero video{
+/* BACKGROUND REAL MOVEMENT */
+.hero::before{
+    content:"";
     position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    min-width:100%;
-    min-height:100%;
-    object-fit:cover;
-    z-index:1;
+    inset:-20%;
+    background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2400&q=80");
+    background-size:cover;
+    background-position:center;
+    transform:scale(1.2);
+    animation:slowZoom 18s ease-in-out infinite alternate;
+    z-index:0;
 }
 
-/* DARK OVERLAY */
+@keyframes slowZoom{
+    0%{ transform:scale(1.2) translateX(0); }
+    100%{ transform:scale(1.35) translateX(-40px); }
+}
+
+/* DARK CINEMATIC LAYER */
 .hero::after{
     content:"";
     position:absolute;
     inset:0;
-    background:linear-gradient(
-        rgba(0,0,0,.25),
-        rgba(0,0,0,.55)
-    );
+    background:
+    radial-gradient(circle at center, rgba(0,0,0,0.2), rgba(0,0,0,0.7));
+    z-index:1;
+}
+
+/* SUN GLOW */
+.sun{
+    position:absolute;
+    top:80px;
+    right:120px;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:radial-gradient(circle,#ffe29a,#ff8a00);
+    filter:blur(2px);
+    opacity:0.9;
+    box-shadow:0 0 120px rgba(255,140,0,0.6);
     z-index:2;
 }
 
 /* CONTENT */
 .content{
-    position:absolute;
-    z-index:5;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    text-align:center;
+    position:relative;
+    z-index:3;
     color:white;
-    width:90%;
+    max-width:800px;
+    padding:20px;
 }
 
 .content h1{
-    font-size:4.5rem;
-    letter-spacing:2px;
-    text-shadow:0 10px 30px rgba(0,0,0,.6);
+    font-size:64px;
+    letter-spacing:1px;
 }
 
 .content p{
-    margin-top:20px;
-    font-size:1.2rem;
-    opacity:.9;
+    margin-top:15px;
+    font-size:18px;
+    opacity:0.9;
 }
 
-/* BUTTON */
 .btn{
     margin-top:30px;
     display:inline-block;
-    padding:15px 40px;
+    padding:14px 35px;
     border-radius:50px;
-    color:white;
     text-decoration:none;
-    background:rgba(255,255,255,.15);
-    border:1px solid rgba(255,255,255,.3);
+    color:white;
+    background:rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.3);
     backdrop-filter:blur(10px);
-    transition:.3s;
+    transition:0.3s;
 }
 
 .btn:hover{
-    transform:translateY(-5px);
-    background:rgba(255,255,255,.25);
+    transform:translateY(-4px);
+    background:rgba(255,255,255,0.25);
 }
 
-/* PALM TREES */
+/* PALM TREES REALISTIC SVG */
 .palm{
     position:absolute;
-    bottom:-20px;
-    width:420px;
-    z-index:3;
-    animation:sway 6s ease-in-out infinite;
+    bottom:-40px;
+    width:380px;
+    z-index:2;
     transform-origin:bottom center;
+    animation:sway 6s ease-in-out infinite;
 }
 
-.palm.left{
-    left:-60px;
-}
-
-.palm.right{
-    right:-60px;
-    animation-delay:2s;
-}
+.left{ left:-60px; }
+.right{ right:-60px; animation-delay:2s; }
 
 @keyframes sway{
-    0%,100%{transform:rotate(-3deg);}
-    50%{transform:rotate(3deg);}
+    0%,100%{ transform:rotate(-2deg); }
+    50%{ transform:rotate(2deg); }
 }
 
 /* MOBILE */
 @media(max-width:768px){
-
-    .content h1{
-        font-size:2.5rem;
-    }
-
-    .palm{
-        width:220px;
-    }
-
+    .content h1{ font-size:36px; }
+    .palm{ width:200px; }
+    .sun{ width:100px; height:100px; right:20px; }
 }
 
 </style>
@@ -135,20 +143,32 @@ body{
 
 <div class="hero">
 
-    <!-- VIDEO BACKGROUND -->
-    <video autoplay muted loop playsinline>
-        <source src="beach.mp4" type="video/mp4">
-    </video>
+    <div class="sun"></div>
 
-    <!-- POHON KELAPA (PAKAI PNG TRANSPARAN) -->
-    <img src="palm-left.png" class="palm left">
-    <img src="palm-right.png" class="palm right">
+    <!-- LEFT PALM (REAL SVG) -->
+    <svg class="palm left" viewBox="0 0 200 300">
+        <path d="M100 300 C90 200, 110 100, 100 0"
+              stroke="#5c3b1e" stroke-width="10" fill="none"/>
+        <path d="M100 80 C20 40, 10 80, 60 120"
+              stroke="#2ecc71" stroke-width="12" fill="none"/>
+        <path d="M100 80 C180 40, 190 80, 140 120"
+              stroke="#2ecc71" stroke-width="12" fill="none"/>
+    </svg>
 
-    <!-- TEXT -->
+    <!-- RIGHT PALM -->
+    <svg class="palm right" viewBox="0 0 200 300">
+        <path d="M100 300 C90 200, 110 100, 100 0"
+              stroke="#5c3b1e" stroke-width="10" fill="none"/>
+        <path d="M100 80 C20 40, 10 80, 60 120"
+              stroke="#2ecc71" stroke-width="12" fill="none"/>
+        <path d="M100 80 C180 40, 190 80, 140 120"
+              stroke="#2ecc71" stroke-width="12" fill="none"/>
+    </svg>
+
     <div class="content">
-        <h1>Tropical Paradise</h1>
-        <p>Temukan liburan impianmu di pantai terbaik dunia</p>
-        <a href="#" class="btn">Jelajahi Sekarang</a>
+        <h1>Luxury Beach Escape</h1>
+        <p>Rasakan pengalaman liburan tropis dengan pemandangan terbaik di dunia</p>
+        <a class="btn" href="#">Explore Now</a>
     </div>
 
 </div>
