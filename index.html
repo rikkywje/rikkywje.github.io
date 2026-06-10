@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Travel Paradise</title>
+<title>Tropical Paradise</title>
 
 <style>
 
@@ -11,26 +11,23 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
 }
 
 body{
+    font-family:'Poppins',sans-serif;
     overflow:hidden;
 }
 
-/* HERO */
-
 .hero{
     position:relative;
-    width:100%;
     height:100vh;
 
     background:
     linear-gradient(
-        rgba(0,0,0,.35),
+        rgba(0,0,0,.25),
         rgba(0,0,0,.45)
     ),
-    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80");
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=80");
 
     background-size:cover;
     background-position:center;
@@ -38,7 +35,6 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    text-align:center;
 }
 
 /* CONTENT */
@@ -46,177 +42,176 @@ body{
 .content{
     position:relative;
     z-index:10;
+    text-align:center;
     color:white;
+    max-width:800px;
     padding:20px;
-    max-width:700px;
 }
 
 .content h1{
-    font-size:4rem;
+    font-size:5rem;
+    font-weight:700;
+    letter-spacing:2px;
     margin-bottom:20px;
-    text-shadow:0 4px 10px rgba(0,0,0,.5);
+    text-shadow:0 10px 25px rgba(0,0,0,.4);
 }
 
 .content p{
     font-size:1.2rem;
     line-height:1.8;
-    margin-bottom:30px;
+    margin-bottom:35px;
 }
 
 .btn{
     display:inline-block;
-    padding:15px 35px;
-    border-radius:50px;
-    background:#00c9ff;
-    color:white;
+    padding:16px 40px;
+    border-radius:60px;
     text-decoration:none;
-    font-weight:bold;
-    transition:.3s;
+    color:white;
+    font-weight:600;
+
+    background:
+    linear-gradient(
+        135deg,
+        #00c6ff,
+        #0072ff
+    );
+
+    transition:.4s;
 }
 
 .btn:hover{
-    background:#00a9d6;
-    transform:translateY(-4px);
+    transform:translateY(-5px);
 }
 
-/* CLOUDS */
+/* SUN */
 
-.cloud{
+.sun{
     position:absolute;
-    color:white;
-    opacity:.5;
-    font-size:90px;
-    animation:cloudMove linear infinite;
+    width:250px;
+    height:250px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        #ffe082,
+        #ff9800
+    );
+
+    top:90px;
+    right:120px;
+
+    filter:blur(2px);
+
+    box-shadow:
+    0 0 60px rgba(255,193,7,.8),
+    0 0 150px rgba(255,193,7,.5);
 }
 
-.cloud1{
-    top:60px;
-    left:-200px;
-    animation-duration:35s;
-}
-
-.cloud2{
-    top:140px;
-    left:-250px;
-    animation-duration:50s;
-}
-
-.cloud3{
-    top:220px;
-    left:-180px;
-    animation-duration:40s;
-}
-
-@keyframes cloudMove{
-    from{
-        transform:translateX(0);
-    }
-    to{
-        transform:translateX(2200px);
-    }
-}
-
-/* PALM TREES */
+/* PALM */
 
 .palm{
     position:absolute;
-    bottom:120px;
+    bottom:-20px;
     z-index:5;
+
     transform-origin:bottom center;
 }
 
-.palm-left{
-    left:30px;
-    animation:swayLeft 5s ease-in-out infinite;
+.leftPalm{
+    left:-50px;
+    width:420px;
+
+    animation:sway 5s ease-in-out infinite;
 }
 
-.palm-right{
-    right:30px;
-    animation:swayRight 6s ease-in-out infinite;
+.rightPalm{
+    right:-60px;
+    width:380px;
+
+    animation:sway2 6s ease-in-out infinite;
 }
 
-@keyframes swayLeft{
+.palm img{
+    width:100%;
+    display:block;
+}
+
+@keyframes sway{
     0%,100%{
-        transform:rotate(-3deg);
+        transform:rotate(-2deg);
     }
+
     50%{
-        transform:rotate(3deg);
+        transform:rotate(2deg);
     }
 }
 
-@keyframes swayRight{
+@keyframes sway2{
     0%,100%{
-        transform:rotate(3deg);
+        transform:rotate(2deg);
     }
-    50%{
-        transform:rotate(-3deg);
-    }
-}
 
-.palm svg{
-    width:180px;
-    height:auto;
+    50%{
+        transform:rotate(-2deg);
+    }
 }
 
 /* WAVES */
-
-.wave-area{
-    position:absolute;
-    bottom:0;
-    width:100%;
-    overflow:hidden;
-    line-height:0;
-}
 
 .wave{
     position:absolute;
     bottom:0;
     width:200%;
-    height:150px;
-}
+    height:180px;
 
-.wave svg{
-    width:100%;
-    height:100%;
-}
+    background:
+    rgba(255,255,255,.15);
 
-.wave1{
-    opacity:.5;
-    animation:waveMove 12s linear infinite;
+    backdrop-filter:blur(6px);
+
+    border-radius:
+    100% 100% 0 0;
+
+    animation:wave 12s linear infinite;
 }
 
 .wave2{
-    opacity:.3;
-    animation:waveMove 20s linear infinite reverse;
+    bottom:-30px;
+    opacity:.4;
+    animation-duration:18s;
 }
 
-@keyframes waveMove{
+@keyframes wave{
+
     from{
         transform:translateX(0);
     }
+
     to{
         transform:translateX(-50%);
     }
 }
 
-/* MOBILE */
-
 @media(max-width:768px){
 
     .content h1{
-        font-size:2.3rem;
+        font-size:2.8rem;
     }
 
-    .content p{
-        font-size:1rem;
+    .leftPalm{
+        width:220px;
     }
 
-    .palm svg{
-        width:110px;
+    .rightPalm{
+        width:200px;
     }
 
-    .cloud{
-        font-size:60px;
+    .sun{
+        width:140px;
+        height:140px;
     }
 }
 
@@ -226,129 +221,34 @@ body{
 
 <section class="hero">
 
-    <!-- Clouds -->
+    <div class="sun"></div>
 
-    <div class="cloud cloud1">☁️</div>
-    <div class="cloud cloud2">☁️</div>
-    <div class="cloud cloud3">☁️</div>
-
-    <!-- Palm Left -->
-
-    <div class="palm palm-left">
-
-        <svg viewBox="0 0 200 350">
-
-            <rect x="90" y="70" width="20" height="280"
-                fill="#7b4b2a"/>
-
-            <path d="M100 70
-                     C40 20 0 40 20 80"
-                stroke="#2ecc71"
-                stroke-width="18"
-                fill="none"/>
-
-            <path d="M100 70
-                     C160 20 200 40 180 80"
-                stroke="#2ecc71"
-                stroke-width="18"
-                fill="none"/>
-
-            <path d="M100 70
-                     C20 90 10 130 40 140"
-                stroke="#27ae60"
-                stroke-width="18"
-                fill="none"/>
-
-            <path d="M100 70
-                     C180 90 190 130 160 140"
-                stroke="#27ae60"
-                stroke-width="18"
-                fill="none"/>
-
-        </svg>
-
+    <!-- Ganti dengan PNG pohon kelapa transparan -->
+    <div class="palm leftPalm">
+        <img src="palm-left.png">
     </div>
 
-    <!-- Palm Right -->
-
-    <div class="palm palm-right">
-
-        <svg viewBox="0 0 200 350">
-
-            <rect x="90" y="70" width="20" height="280"
-                fill="#7b4b2a"/>
-
-            <path d="M100 70
-                     C40 20 0 40 20 80"
-                stroke="#2ecc71"
-                stroke-width="18"
-                fill="none"/>
-
-            <path d="M100 70
-                     C160 20 200 40 180 80"
-                stroke="#2ecc71"
-                stroke-width="18"
-                fill="none"/>
-
-            <path d="M100 70
-                     C20 90 10 130 40 140"
-                stroke="#27ae60"
-                stroke-width="18"
-                fill="none"/>
-
-            <path d="M100 70
-                     C180 90 190 130 160 140"
-                stroke="#27ae60"
-                stroke-width="18"
-                fill="none"/>
-
-        </svg>
-
+    <div class="palm rightPalm">
+        <img src="palm-right.png">
     </div>
-
-    <!-- CONTENT -->
 
     <div class="content">
-        <h1>Temukan Liburan Impianmu</h1>
+
+        <h1>Tropical Paradise</h1>
 
         <p>
-            Jelajahi pantai tropis, resort mewah,
-            dan destinasi eksotis dengan pengalaman
-            yang tak terlupakan.
+            Temukan resort terbaik, pantai eksotis,
+            dan pengalaman liburan tak terlupakan.
         </p>
 
         <a href="#" class="btn">
-            Pesan Sekarang
+            Mulai Jelajahi
         </a>
-    </div>
-
-    <!-- WAVES -->
-
-    <div class="wave-area">
-
-        <div class="wave wave1">
-
-            <svg viewBox="0 0 2880 320" preserveAspectRatio="none">
-
-                <path fill="#ffffff"
-                d="M0,224L80,208C160,192,320,160,480,160C640,160,800,192,960,208C1120,224,1280,224,1440,202C1600,181,1760,139,1920,133C2080,128,2240,160,2400,186C2560,213,2720,235,2880,224L2880,320L0,320Z"/>
-
-            </svg>
-
-        </div>
-
-        <div class="wave wave2">
-
-            <svg viewBox="0 0 2880 320" preserveAspectRatio="none">
-
-                <path fill="#ffffff"
-                d="M0,256L80,240C160,224,320,192,480,170C640,149,800,149,960,165C1120,181,1280,213,1440,218C1600,224,1760,192,1920,165C2080,139,2240,117,2400,133C2560,149,2720,203,2880,224L2880,320L0,320Z"/>
-
-            </svg>
-
-        </div>
 
     </div>
+
+    <div class="wave"></div>
+    <div class="wave wave2"></div>
 
 </section>
 
