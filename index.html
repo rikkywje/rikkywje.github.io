@@ -3,192 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premium Beach Landing</title>
+<title>Travel</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-body{
-    overflow-x:hidden;
+body, html {
+    height: 100%;
 }
 
-/* 🌅 SKY ANIMATION */
-.hero{
-    height:100vh;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:white;
-    overflow:hidden;
-    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
-    background-size: 400% 400%;
-    animation: skyMove 12s ease infinite;
+/* HERO */
+.hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; /* penting untuk wave */
 }
 
-@keyframes skyMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+/* overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.5);
 }
 
-/* 🌞 SUN */
-.sun{
-    position:absolute;
-    top:80px;
-    left:10%;
-    width:80px;
-    height:80px;
-    background:yellow;
-    border-radius:50%;
-    box-shadow:0 0 60px yellow;
-    animation:sunMove 10s linear infinite;
+.hero-content {
+    position: relative;
+    text-align: center;
+    color: white;
+    max-width: 700px;
+    padding: 20px;
 }
 
-@keyframes sunMove{
-    0%{transform:translateX(0) translateY(0);}
-    50%{transform:translateX(300px) translateY(-30px);}
-    100%{transform:translateX(600px) translateY(0);}
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
 }
 
-/* CONTENT */
-.content{
-    position:relative;
-    z-index:2;
-    max-width:700px;
-    padding:20px;
-    animation:fadeUp 2s ease;
-}
-
-@keyframes fadeUp{
-    from{opacity:0; transform:translateY(40px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-h1{
-    font-size:3rem;
-    margin-bottom:15px;
-}
-
-p{
-    font-size:1.1rem;
-    margin-bottom:25px;
-    line-height:1.6;
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
 }
 
 /* BUTTON */
-.btn{
-    display:inline-block;
-    padding:12px 25px;
-    background:#00bcd4;
-    color:white;
-    text-decoration:none;
-    border-radius:30px;
-    transition:0.3s;
-    font-weight:bold;
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #00bcd4;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s;
+    font-weight: bold;
 }
 
-.btn:hover{
-    transform:translateY(-5px);
-    background:#0097a7;
+.btn:hover {
+    background: #0097a7;
+    transform: translateY(-3px);
 }
 
-/* 🌊 WAVES (NAIK TURUN + GERAK) */
-.wave{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:200%;
-    height:150px;
-    background:url('https://i.ibb.co/6W40t1B/wave.png');
-    background-size:50% 100%;
-    opacity:0.6;
-    animation:waveMove 8s linear infinite, waveUpDown 3s ease-in-out infinite;
+/* 🌊 WAVE */
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 120px;
+    background: url('https://i.ibb.co/6W40t1B/wave.png');
+    background-size: 50% 100%;
+    animation: waveMove 6s linear infinite;
+    opacity: 0.6;
 }
 
-.wave2{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:200%;
-    height:180px;
-    background:url('https://i.ibb.co/6W40t1B/wave.png');
-    background-size:50% 100%;
-    opacity:0.4;
-    animation:waveMove 12s linear infinite, waveUpDown 4s ease-in-out infinite;
+.wave2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 150px;
+    background: url('https://i.ibb.co/6W40t1B/wave.png');
+    background-size: 50% 100%;
+    animation: waveMove 10s linear infinite;
+    opacity: 0.4;
 }
 
-@keyframes waveMove{
-    0%{transform:translateX(0);}
-    100%{transform:translateX(-50%);}
-}
-
-@keyframes waveUpDown{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(15px);}
-}
-
-/* 📜 SCROLL SECTION */
-.section{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:2rem;
-    opacity:0;
-    transform:translateY(50px);
-    transition:all 1s ease;
-}
-
-.section.show{
-    opacity:1;
-    transform:translateY(0);
+@keyframes waveMove {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
-
-    <div class="sun"></div>
-
-    <div class="content">
+    
+    <div class="hero-content">
         <h1>Temukan Liburan Impianmu</h1>
-        <p>Jelajahi pantai, resort, dan destinasi terbaik dengan pengalaman premium.</p>
-        <a href="#" class="btn">Pesan Sekarang</a>
+        <p>
+            Jelajahi pantai, resort, dan destinasi terbaik di dunia dengan pengalaman yang tak terlupakan.
+        </p>
+        <a href="https://www.tiket.com" class="btn">Pesan Sekarang</a>
     </div>
 
+    <!-- 🌊 WAVE HARUS DI DALAM HERO -->
     <div class="wave"></div>
     <div class="wave2"></div>
 
 </div>
-
-<!-- SCROLL SECTION -->
-<div class="section">🌴 About Travel</div>
-<div class="section">🏝 Paket Wisata</div>
-<div class="section">✈️ Booking Sekarang</div>
-
-<script>
-// ✨ scroll animation
-const sections = document.querySelectorAll('.section');
-
-window.addEventListener('scroll', () => {
-    sections.forEach(sec => {
-        const rect = sec.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 100){
-            sec.classList.add('show');
-        }
-    });
-});
-</script>
 
 </body>
 </html>
