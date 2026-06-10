@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Luxury Beach Escape</title>
+<title>Travel Booking</title>
 
 <style>
 
@@ -16,162 +15,226 @@
 }
 
 body{
-    overflow:hidden;
+    background:#f7f7f7;
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.05);
+    z-index:100;
+}
+
+.logo{
+    font-weight:700;
+    font-size:20px;
+    color:#ff385c;
+}
+
+nav ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+nav ul li{
+    cursor:pointer;
+    font-size:14px;
+    color:#333;
 }
 
 /* HERO */
 .hero{
-    position:relative;
-    width:100%;
-    height:100vh;
+    margin-top:70px;
+    height:70vh;
+    background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80");
+    background-size:cover;
+    background-position:center;
     display:flex;
     justify-content:center;
     align-items:center;
-    text-align:center;
-    overflow:hidden;
+    position:relative;
 }
 
-/* BACKGROUND REAL MOVEMENT */
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:-20%;
-    background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2400&q=80");
-    background-size:cover;
-    background-position:center;
-    transform:scale(1.2);
-    animation:slowZoom 18s ease-in-out infinite alternate;
-    z-index:0;
-}
-
-@keyframes slowZoom{
-    0%{ transform:scale(1.2) translateX(0); }
-    100%{ transform:scale(1.35) translateX(-40px); }
-}
-
-/* DARK CINEMATIC LAYER */
 .hero::after{
     content:"";
     position:absolute;
     inset:0;
-    background:
-    radial-gradient(circle at center, rgba(0,0,0,0.2), rgba(0,0,0,0.7));
-    z-index:1;
+    background:rgba(0,0,0,0.35);
 }
 
-/* SUN GLOW */
-.sun{
-    position:absolute;
-    top:80px;
-    right:120px;
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    background:radial-gradient(circle,#ffe29a,#ff8a00);
-    filter:blur(2px);
-    opacity:0.9;
-    box-shadow:0 0 120px rgba(255,140,0,0.6);
-    z-index:2;
-}
-
-/* CONTENT */
-.content{
+/* SEARCH BOX (LIKE BOOKING) */
+.search-box{
     position:relative;
-    z-index:3;
-    color:white;
-    max-width:800px;
+    z-index:2;
+    background:white;
     padding:20px;
+    border-radius:40px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    box-shadow:0 10px 40px rgba(0,0,0,0.2);
+    flex-wrap:wrap;
 }
 
-.content h1{
-    font-size:64px;
-    letter-spacing:1px;
+.search-box input{
+    border:none;
+    outline:none;
+    padding:10px;
+    font-size:14px;
+    min-width:150px;
 }
 
-.content p{
-    margin-top:15px;
-    font-size:18px;
-    opacity:0.9;
-}
-
-.btn{
-    margin-top:30px;
-    display:inline-block;
-    padding:14px 35px;
-    border-radius:50px;
-    text-decoration:none;
+.search-box button{
+    background:#ff385c;
     color:white;
-    background:rgba(255,255,255,0.15);
-    border:1px solid rgba(255,255,255,0.3);
-    backdrop-filter:blur(10px);
+    border:none;
+    padding:12px 20px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* SECTION */
+.section{
+    padding:60px 40px;
+}
+
+.section h2{
+    margin-bottom:20px;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
     transition:0.3s;
 }
 
-.btn:hover{
-    transform:translateY(-4px);
-    background:rgba(255,255,255,0.25);
+.card:hover{
+    transform:translateY(-5px);
 }
 
-/* PALM TREES REALISTIC SVG */
-.palm{
-    position:absolute;
-    bottom:-40px;
-    width:380px;
-    z-index:2;
-    transform-origin:bottom center;
-    animation:sway 6s ease-in-out infinite;
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
 }
 
-.left{ left:-60px; }
-.right{ right:-60px; animation-delay:2s; }
-
-@keyframes sway{
-    0%,100%{ transform:rotate(-2deg); }
-    50%{ transform:rotate(2deg); }
+.card-content{
+    padding:15px;
 }
 
-/* MOBILE */
+.card-content h3{
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.card-content p{
+    font-size:13px;
+    color:#666;
+}
+
+/* RESPONSIVE */
 @media(max-width:768px){
-    .content h1{ font-size:36px; }
-    .palm{ width:200px; }
-    .sun{ width:100px; height:100px; right:20px; }
+
+    nav{
+        padding:10px 20px;
+    }
+
+    .search-box{
+        flex-direction:column;
+        border-radius:20px;
+    }
+
 }
 
 </style>
 </head>
 <body>
 
-<div class="hero">
+<!-- NAV -->
+<nav>
+    <div class="logo">Travelly</div>
 
-    <div class="sun"></div>
+    <ul>
+        <li>Home</li>
+        <li>Explore</li>
+        <li>Deals</li>
+        <li>Login</li>
+    </ul>
+</nav>
 
-    <!-- LEFT PALM (REAL SVG) -->
-    <svg class="palm left" viewBox="0 0 200 300">
-        <path d="M100 300 C90 200, 110 100, 100 0"
-              stroke="#5c3b1e" stroke-width="10" fill="none"/>
-        <path d="M100 80 C20 40, 10 80, 60 120"
-              stroke="#2ecc71" stroke-width="12" fill="none"/>
-        <path d="M100 80 C180 40, 190 80, 140 120"
-              stroke="#2ecc71" stroke-width="12" fill="none"/>
-    </svg>
+<!-- HERO -->
+<section class="hero">
 
-    <!-- RIGHT PALM -->
-    <svg class="palm right" viewBox="0 0 200 300">
-        <path d="M100 300 C90 200, 110 100, 100 0"
-              stroke="#5c3b1e" stroke-width="10" fill="none"/>
-        <path d="M100 80 C20 40, 10 80, 60 120"
-              stroke="#2ecc71" stroke-width="12" fill="none"/>
-        <path d="M100 80 C180 40, 190 80, 140 120"
-              stroke="#2ecc71" stroke-width="12" fill="none"/>
-    </svg>
-
-    <div class="content">
-        <h1>Luxury Beach Escape</h1>
-        <p>Rasakan pengalaman liburan tropis dengan pemandangan terbaik di dunia</p>
-        <a class="btn" href="#">Explore Now</a>
+    <div class="search-box">
+        <input type="text" placeholder="Mau ke mana?">
+        <input type="date">
+        <input type="date">
+        <button>Cari</button>
     </div>
 
-</div>
+</section>
+
+<!-- DESTINATION -->
+<section class="section">
+
+    <h2>Destinasi Populer</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80">
+            <div class="card-content">
+                <h3>Bali, Indonesia</h3>
+                <p>Pantai indah & resort mewah</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?auto=format&fit=crop&w=800&q=80">
+            <div class="card-content">
+                <h3>Maldives</h3>
+                <p>Air laut biru & villa terapung</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=800&q=80">
+            <div class="card-content">
+                <h3>Hawaii</h3>
+                <p>Surfing & sunset tropis</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80">
+            <div class="card-content">
+                <h3>Thailand</h3>
+                <p>Budaya & pantai eksotis</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
 
 </body>
 </html>
