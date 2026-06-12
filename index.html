@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
-// DATA MATCH (SEPERTI SOFASCORE)
+// DATA MATCH
 let match = {
     home: "Canada",
     away: "Bosnia & Herzegovina",
@@ -15,55 +15,55 @@ let match = {
     minute: 69,
     second: 40,
     status: "LIVE",
-
     odds: {
         handicap_home: 2.10,
         handicap_away: 1.78
     }
 };
 
-// broadcast ke semua client
-function sendUpdate() {
+// kirim ke semua client
+function broadcast() {
+    const data = JSON.stringify(match);
+
     wss.clients.forEach(client => {
         if (client.readyState === 1) {
-            client.send(JSON.stringify(match));
+            client.send(data);
         }
     });
 }
 
-// SIMULASI LIVE UPDATE (score + timer + odds berubah)
+// SIMULASI LIVE UPDATE
 setInterval(() => {
 
-    // update waktu
+    // update timer
     match.second++;
     if (match.second >= 60) {
         match.minute++;
         match.second = 0;
     }
 
-    // simulasi gol kecil (random)
+    // simulasi gol
     if (Math.random() < 0.03) {
-        if (Math.random() > 0.5) match.scoreHome++;
-        else match.scoreAway++;
+        Math.random() > 0.5 ? match.scoreHome++ : match.scoreAway++;
     }
 
-    // simulasi odds berubah
-    match.odds.handicap_home += (Math.random() - 0.5) * 0.05;
-    match.odds.handicap_away += (Math.random() - 0.5) * 0.05;
+    // simulasi odds naik turun
+    match.odds.handicap_home =
+        (parseFloat(match.odds.handicap_home) + (Math.random() - 0.5) * 0.05).toFixed(2);
 
-    // rounding
-    match.odds.handicap_home = match.odds.handicap_home.toFixed(2);
-    match.odds.handicap_away = match.odds.handicap_away.toFixed(2);
+    match.odds.handicap_away =
+        (parseFloat(match.odds.handicap_away) + (Math.random() - 0.5) * 0.05).toFixed(2);
 
-    sendUpdate();
+    broadcast();
 
 }, 2000);
 
-// client connect
-wss.on("connection", ws => {
+// websocket connection
+wss.on("connection", (ws) => {
     ws.send(JSON.stringify(match));
 });
 
+// start server
 server.listen(3000, () => {
-    console.log("Server running http://localhost:3000");
+    console.log("LIVE SERVER RUNNING: http://localhost:3000");
 });
