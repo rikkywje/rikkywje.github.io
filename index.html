@@ -1,240 +1,106 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Travel Booking</title>
+<title>Live Score & Odds</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:system-ui, sans-serif;
-}
-
 body{
-    background:#f7f7f7;
+    background:#121212;
+    color:#fff;
+    font-family:Arial,sans-serif;
 }
 
-/* NAVBAR */
-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    background:white;
+.container{
+    width:900px;
+    margin:auto;
+}
+
+.match{
+    background:#1f1f1f;
+    margin:10px 0;
+    padding:15px;
+    border-radius:8px;
+}
+
+.league{
+    color:#f0b90b;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.teams{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:15px 40px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.05);
-    z-index:100;
 }
 
-.logo{
-    font-weight:700;
-    font-size:20px;
-    color:#ff385c;
+.score{
+    font-size:24px;
+    font-weight:bold;
 }
 
-nav ul{
-    display:flex;
-    gap:20px;
-    list-style:none;
-}
-
-nav ul li{
-    cursor:pointer;
-    font-size:14px;
-    color:#333;
-}
-
-/* HERO */
-.hero{
-    margin-top:70px;
-    height:70vh;
-    background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80");
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.35);
-}
-
-/* SEARCH BOX (LIKE BOOKING) */
-.search-box{
-    position:relative;
-    z-index:2;
-    background:white;
-    padding:20px;
-    border-radius:40px;
+.odds{
     display:flex;
     gap:10px;
-    align-items:center;
-    box-shadow:0 10px 40px rgba(0,0,0,0.2);
-    flex-wrap:wrap;
+    margin-top:15px;
 }
 
-.search-box input{
-    border:none;
-    outline:none;
+.odd-btn{
+    flex:1;
+    background:#2b2b2b;
     padding:10px;
-    font-size:14px;
-    min-width:150px;
-}
-
-.search-box button{
-    background:#ff385c;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:30px;
+    text-align:center;
+    border-radius:5px;
     cursor:pointer;
-    font-weight:600;
 }
 
-/* SECTION */
-.section{
-    padding:60px 40px;
+.odd-btn:hover{
+    background:#3d3d3d;
 }
 
-.section h2{
-    margin-bottom:20px;
+.live{
+    color:red;
+    font-weight:bold;
 }
-
-/* CARDS */
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-}
-
-.card-content{
-    padding:15px;
-}
-
-.card-content h3{
-    font-size:16px;
-    margin-bottom:5px;
-}
-
-.card-content p{
-    font-size:13px;
-    color:#666;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-
-    nav{
-        padding:10px 20px;
-    }
-
-    .search-box{
-        flex-direction:column;
-        border-radius:20px;
-    }
-
-}
-
 </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav>
-    <div class="logo">Travelly</div>
+<div class="container">
 
-    <ul>
-        <li>Home</li>
-        <li>Explore</li>
-        <li>Deals</li>
-        <li>Login</li>
-    </ul>
-</nav>
+    <div class="match">
+        <div class="league">
+            FIFA World Cup
+            <span class="live">LIVE 78'</span>
+        </div>
 
-<!-- HERO -->
-<section class="hero">
+        <div class="teams">
+            <div>Canada</div>
+            <div class="score">2 - 1</div>
+            <div>Bosnia</div>
+        </div>
 
-    <div class="search-box">
-        <input type="text" placeholder="Mau ke mana?">
-        <input type="date">
-        <input type="date">
-        <button>Cari</button>
+        <div class="odds">
+            <div class="odd-btn">
+                Home<br>
+                1.85
+            </div>
+
+            <div class="odd-btn">
+                Draw<br>
+                3.40
+            </div>
+
+            <div class="odd-btn">
+                Away<br>
+                4.20
+            </div>
+        </div>
     </div>
 
-</section>
-
-<!-- DESTINATION -->
-<section class="section">
-
-    <h2>Destinasi Populer</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80">
-            <div class="card-content">
-                <h3>Bali, Indonesia</h3>
-                <p>Pantai indah & resort mewah</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?auto=format&fit=crop&w=800&q=80">
-            <div class="card-content">
-                <h3>Maldives</h3>
-                <p>Air laut biru & villa terapung</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=800&q=80">
-            <div class="card-content">
-                <h3>Hawaii</h3>
-                <p>Surfing & sunset tropis</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80">
-            <div class="card-content">
-                <h3>Thailand</h3>
-                <p>Budaya & pantai eksotis</p>
-            </div>
-        </div>
-
-    </div>
-
-</section>
+</div>
 
 </body>
 </html>
